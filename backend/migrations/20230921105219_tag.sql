@@ -1,0 +1,12 @@
+CREATE TABLE tags
+(
+    id          SERIAL PRIMARY KEY,
+    name        TEXT NOT NULL
+);
+
+CREATE TABLE blog_tags
+(
+    id          SERIAL PRIMARY KEY,
+    blog_id     INTEGER NOT NULL REFERENCES blogs (id) DEFERRABLE INITIALLY DEFERRED,
+    label_id    INTEGER NOT NULL REFERENCES tags (id) DEFERRABLE INITIALLY DEFERRED
+);
